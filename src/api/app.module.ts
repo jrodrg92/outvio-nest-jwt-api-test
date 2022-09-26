@@ -6,8 +6,6 @@ import { AppService } from './app.service';
 import { HashService } from './services/hash.service';
 import { UserModule } from './modules/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
-import { LimiterInfo, RateLimiterModule } from 'nest-ratelimiter';
-import { RedisService, RedisModule } from 'nestjs-redis';
 
 // This is functions for limiting requests by IP
 function getRequestIP(ctx: ExecutionContext) {
@@ -26,7 +24,6 @@ function getRequestIP(ctx: ExecutionContext) {
     AuthModule,
   ],
   controllers: [AppController],
-  providers: [AppService, HashService],
-  exports: [RedisService]
+  providers: [AppService, HashService]
 })
 export class AppModule {}

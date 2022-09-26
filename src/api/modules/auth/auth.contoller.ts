@@ -13,7 +13,6 @@ import {
     AuthGuard
 } from '@nestjs/passport';
 import { ApiTags, ApiBody } from '@nestjs/swagger';
-import { RateLimit } from 'nestjs-rate-limiter'
 
 import { Request } from "express";
 

@@ -1,7 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './api/app.module';
-import { RATELIMITER_GUARD_TOKEN } from 'nest-ratelimiter';
 
 declare const module: any;
 
@@ -22,8 +21,6 @@ async function bootstrap() {
     )
   .build();
   
-  app.useGlobalGuards(app.get(RATELIMITER_GUARD_TOKEN));
-
   const document = SwaggerModule.createDocument(app, config);
 
   SwaggerModule.setup('docs/swagger', app, document);
